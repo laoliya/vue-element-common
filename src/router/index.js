@@ -6,9 +6,15 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('../views/Home.vue')
-  },
+    component: () => import('@/views/layout/'),
+    children: [
+      {
+        path: '', // 默认子路由
+        name: 'home',
+        component: () => import('@/views/Home')
+      },
+    ]
+  }
 ]
 
 const router = new VueRouter({
